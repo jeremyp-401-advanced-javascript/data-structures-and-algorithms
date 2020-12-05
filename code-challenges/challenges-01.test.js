@@ -9,11 +9,13 @@ Then, write a function named speaker that takes in a string and a callback funct
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  // Solution code here...
+  // Convert word to uppercase
+  return word.toUpperCase();
 };
 
 const speaker = (message, callback) => {
-  // Solution code here...
+  // Use greeting() to convert and return message
+  return greeting(message);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,11 +35,17 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  // Push the 'value' to 'arr'
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  // Use a for loop to add 'num' to 'arr' 'times' number of times
+  for (let i = 0; i < times; i++) {
+    addValues(arr, num);
+  }
+
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -59,7 +67,15 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  // Create 'myList' array
+  let myList = [];
+  // Iterate over each 'item' in 'availableItems'
+  availableItems.forEach(item => {
+    // Is 'item.available' true? If so, push 'item.name' to 'myList'
+    if (item.available === true) { myList.push(item.name); }
+  });
+  // Return 'myList'
+  return myList;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -77,7 +93,25 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  // Not to be pedantic, but technically any number is divisible by 3 or 5.
+
+  // Create an 'output' array
+  let output = [];
+  // Use forEach on 'arr' to check each 'num'
+  arr.forEach(num => {
+    // Maybe start backwards: is ('num' / 3 && 'num' / 5) with no remainder (use modulus)?
+    if (num % 3 === 0 && num % 5 === 0) {
+      output.push('Fizz Buzz');
+    } else if (num % 5 === 0) { // Now let's check for 'num' % 5
+      output.push('Buzz');
+    } else if (num % 3 === 0) { // Then do 'num' % 3
+      output.push('Fizz');
+    } else { // If all else fails: just push 'num'
+      output.push(num);
+    }
+  });
+  // Return 'output'
+  return output;
 };
 
 /* ------------------------------------------------------------------------------------------------
