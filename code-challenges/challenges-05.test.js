@@ -37,8 +37,8 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const templateWithJQuery = () => {
-  // This took waaaay too long. Some basic info on Cheerio.js
-  // and how CF uses it would be appreciated.
+  // This took waaaay too long. I guess you just treat the snippet like it's
+  // the only thing on the page and Cheerio takes care of the rest.
   let mainEl = $('main');
   starWarsPeople.forEach(char => {
     let template = $(`
