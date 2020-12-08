@@ -1,5 +1,9 @@
 # Data Structures and Algorithms
 
+## Javascript Challenges
+
+[Reverse Array](javascript/code-challenges/arrays/arrayReverse/README.md)
+
 ## Create a copy of this repository
 
 If you have not already created your data-structures-and-algorithms repository, Please follow these steps:
