@@ -20,4 +20,4 @@ Big O is O(n) since there is a 1:1 relationship between our array input and outp
 
 ## Solution
 
-![code-challenge-01](https://user-images.githubusercontent.com/68620962/101422168-e4411b80-38aa-11eb-96ee-90bdd8a0f95f.png)
+![code-challenge-01](assets/array-reverse.png)
