@@ -3,6 +3,7 @@
 ## Table of Contents
 
 [Reverse Array](code-challenges/arrays/arrayReverse/README.md)
+[Shift Array](code-challenges/arrays/arrayShift/README.md)
 
 ## Language: `JavaScript`
 
