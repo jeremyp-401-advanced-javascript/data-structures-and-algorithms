@@ -3,6 +3,7 @@
 ## Javascript Challenges
 
 [Reverse Array](javascript/code-challenges/arrays/arrayReverse/README.md)
+[Shift Array](javascript/code-challenges/arrays/arrayShift/README.md)
 
 ## Create a copy of this repository
 
