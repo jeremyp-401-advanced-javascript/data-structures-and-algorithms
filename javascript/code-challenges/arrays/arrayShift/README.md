@@ -21,4 +21,4 @@ Big O is assumed to be O(n) since there is roughly a 1:1 relationship between ou
 
 ## Solution
 
-![code-challenge-0X](assets/array-shift.png)
+![code-challenge-02](assets/array-shift.png)
