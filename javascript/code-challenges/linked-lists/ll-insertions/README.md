@@ -51,4 +51,4 @@ Write tests to prove the following functionality:
 
 ## Solution
 
-![code-challenge-04]()
+![code-challenge-06](./assets/CodeChallenge6-Whiteboard.png)
