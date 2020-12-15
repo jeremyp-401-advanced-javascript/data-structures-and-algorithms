@@ -1,4 +1,4 @@
-# Linked Lists
+# Linked List Insertions
 
 Extend your LinkedList class with:
 
