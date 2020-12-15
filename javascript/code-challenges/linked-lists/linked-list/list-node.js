@@ -1,9 +1,9 @@
 'use strict';
 
 class ListNode {
-  constructor(){
-    this.value = 0;
-    this.next = '';
+  constructor(value){
+    this.value = value;
+    this.next = null;
   }
 }
 

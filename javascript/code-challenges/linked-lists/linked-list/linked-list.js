@@ -33,7 +33,7 @@ class LinkedList {
     }
     return false;
   }
-  append(value) { // Not needed for the challenge, but hopefully it makes the rest make sense.
+  append(value) { // Not needed for the code challenge
     const node = new Node(value);
     // Traverse the list until 'next === null' is found.
 
