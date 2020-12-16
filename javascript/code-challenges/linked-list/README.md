@@ -37,9 +37,9 @@ Any exceptions or errors that come from your code should be semantic, capturable
 
 ## Approach & Efficiency
 
-insert - O(1)
-includes - O(n)
-toString - O(n)
+insert - O(1)  
+includes - O(n)  
+toString - O(n)  
 
 ## Testing
 
