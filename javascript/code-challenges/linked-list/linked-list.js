@@ -3,9 +3,8 @@
 let Node = require('./list-node');
 
 class LinkedList {
-  constructor(value){
-    this.value = value;
-    this.next = '';
+  constructor(){
+    this.head = null;
   }
   // Insert - Takes a value argument and adds a new node with that value to the head
   insert(value) {
@@ -33,22 +32,6 @@ class LinkedList {
     }
     return false;
   }
-  append(value) { // Not needed for the code challenge
-    const node = new Node(value);
-    // Traverse the list until 'next === null' is found.
-
-    if (!this.head) {
-      this.head = node;
-      return;
-    }
-
-    let currentNode = this.head;
-    while(currentNode.next !== null) {
-      currentNode = currentNode.next;
-    }
-    // When it is found point next to the new node
-    currentNode.next = node;
-  }
   toString() {
     // Returns a string representing all values in the linked list
     // Like: "{a} -> {b} -> {c} -> null"
@@ -57,7 +40,7 @@ class LinkedList {
     let currentNode = this.head;
 
     if (!this.head) {
-      return 'NULL';
+      return `{NULL}`;
     } else {
       arrayString = `{${this.head.value}} -> `;
     }
@@ -68,7 +51,7 @@ class LinkedList {
       arrayString += `{${currentNode.value}} -> `;
     }
 
-    arrayString += `NULL`;
+    arrayString += `{NULL}`;
 
     return arrayString;
   }

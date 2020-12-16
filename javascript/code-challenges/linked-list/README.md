@@ -39,7 +39,7 @@ Any exceptions or errors that come from your code should be semantic, capturable
 
 Big O is assumed to be O(1) for all three methods.
 
-## Testing (Currently Incomplete)
+## Testing
 
 Write tests to prove the following functionality:
 
@@ -50,7 +50,3 @@ Write tests to prove the following functionality:
 - Will return true when finding a value within the linked list that exists
 - Will return false when searching for a value in the linked list that does not exist
 - Can properly return a collection of all the values that exist in the linked list
-
-## Solution (Currently Incomplete)
-
-![code-challenge-05]()
