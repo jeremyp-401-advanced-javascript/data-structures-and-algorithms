@@ -1,20 +1,58 @@
 'use strict';
 
+let Node = require('./list-node');
+
 class LinkedList {
+  constructor(){
+    this.head = null;
+  }
+  // Insert - Takes a value argument and adds a new node with that value to the head
   insert(value) {
-    // Takes a value argument and adds a new node with that value to the head
+    // Make a new node with the value from the argument
+    const node = new Node(value);
+    // Make the new Node's next point at the current head
+    node.next = this.head;
+    // Reassign head to the new Node.
+    this.head = node;
     return;
   }
-  includes(value) {
+  includes(testValue) {
     // Takes a value argument and returns a boolean if that value exists
-    let existsResult = false;
-    // Traverse the linked list searching for the value.
-    return existsResult;
+    if(!this.head) { // If there's no head then we're done before we start.
+      return false;
+    }
+    // Start at the head for our while loop.
+    let currentNode = this.head;
+    while(currentNode !== null) {
+      if (currentNode.value === testValue) {
+        return true;
+      } else {
+        currentNode = currentNode.next;
+      }
+    }
+    return false;
   }
   toString() {
     // Returns a string representing all values in the linked list
+    // Like: "{a} -> {b} -> {c} -> null"
     let arrayString = '';
+
+    let currentNode = this.head;
+
+    if (!this.head) {
+      return `{NULL}`;
+    } else {
+      arrayString = `{${this.head.value}} -> `;
+    }
+
     // Traverse the linked list and concat the values.
+    while(currentNode.next !== null) {
+      currentNode = currentNode.next;
+      arrayString += `{${currentNode.value}} -> `;
+    }
+
+    arrayString += `{NULL}`;
+
     return arrayString;
   }
 }
