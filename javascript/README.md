@@ -2,9 +2,17 @@
 
 ## Table of Contents
 
-[Reverse Array](code-challenges/arrays/arrayReverse/README.md)
+### Arrays
 
-[Shift Array](code-challenges/arrays/arrayShift/README.md)
+- [Reverse Array](code-challenges/arrays/arrayReverse/README.md)
+- [Shift Array](code-challenges/arrays/arrayShift/README.md)
+- [Array Binary Search](code-challenges/arrays/arrayBinarySearch/README.md)
+
+### Linked Lists
+
+- [Linked List](code-challenges/linked-list/README.md)
+- [Linked List Insertions](code-challenges/ll-insertions/README.md)
+- [Linked List K<sup>th</sup> from End](code-challenges/ll-kth-from-end/README.md)
 
 ## Language: `JavaScript`
 
