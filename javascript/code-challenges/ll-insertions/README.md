@@ -1,54 +1,48 @@
 # Linked List Insertions
 
-Extend your LinkedList class with:
-
-- `.append(value)` which adds a new node with the given `value` to the end of the list
-- `.insertBefore(value, newVal)` which add a new node with the given `newValue` immediately before the first `value` node
-- `.insertAfter(value, newVal)` which add a new node with the given `newValue` immediately after the first `value` node
-
-Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
+Write the methods below as extensions to the LinkedList class.
 
 ## Challenge
 
-**Create a linked list with three different methods:**
+**Extend the linked list with these three different methods:**
 
->`.append(value)` (add a new node with `value` to the end of the LinkedList)
->Input: a string value
->Output: a node with the input value inserted at the `head`
->
+>`.append(value)` (adds a new node with the given `value` to the end of the list)  
+>Input: a string `value`  
+>Output: a node with the `value` inserted at the end of the list  
 >Edge Case(s):
->- If linked list is empty, the new head should have next = null
+>- If linked list is empty (head = null), the new node should be the head
 
->`includes` (searches the list for a value)
->Input: a string value
->Output: a boolean representing whether the input value was found in the linked list
->
+>`.insertBefore(value, newVal)` (adds a new node with `newVal` immediately before the first node containing `value`)  
+>Input: a `value` string to search for, a `newVal` string to insert in a new node before `value`  
+>Output: a node with the `newVal` inserted before the searched `value`  
 >Edge Case(s):
->- If linked list is empty, the method should return false
+>- Attempting to insertBefore() the head node should divert to insert() instead.
 
->`toString` (represent our linked list as a string of values).
->Input: none
->Output: a representation of the linked list as a string
->
->Edge cases:
->- The linked list is empty
+>`.insertAfter(value, newVal)` (adds a new node with `newVal` immediately after the first node containing `value`)  
+>Input: a `value` string to search for, a `newVal` string to insert in a new node after `value`  
+>Output: a node with the `newVal` inserted after the searched `value`  
+>Edge case(s):
+>- Attempting to insertAfter() the tail node should divert to append() instead.
 
 ## Approach & Efficiency
 
-Big O is assumed to be O(1) for all three methods.
+### Big O Notation
+
+- LinkedList.append() - O(n)
+- LinkedList.insertBefore() - O(1) (plus time to search for value)
+- LinkedList.insertAfter() - O(1) (plus time to search for value)
 
 ## Testing (Currently Incomplete)
 
 Write tests to prove the following functionality:
 
-- Can successfully instantiate an empty linked list
-- Can properly insert into the linked list
-- The head property will properly point to the first node in the linked list
-- Can properly insert multiple nodes into the linked list
-- Will return true when finding a value within the linked list that exists
-- Will return false when searching for a value in the linked list that does not exist
-- Can properly return a collection of all the values that exist in the linked list
+- Can successfully add a node to the end of the linked list
+- Can successfully add multiple nodes to the end of a linked list
+- Can successfully insert a node before a node located i the middle of a linked list
+- Can successfully insert a node before the first node of a linked list
+- Can successfully insert after a node in the middle of the linked list
+- Can successfully insert a node after the last node of the linked list
 
-## Solution
+## Whiteboard Solution
 
 ![code-challenge-06](./assets/CodeChallenge6-Whiteboard.png)
