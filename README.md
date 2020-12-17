@@ -2,8 +2,6 @@
 
 ## Javascript Challenges
 
-### Arrays
-
 - [Reverse Array](javascript/code-challenges/arrays/arrayReverse/README.md)
 - [Shift Array](javascript/code-challenges/arrays/arrayShift/README.md)
 - [Array Binary Search](javascript/code-challenges/arrays/arrayBinarySearch/README.md)
