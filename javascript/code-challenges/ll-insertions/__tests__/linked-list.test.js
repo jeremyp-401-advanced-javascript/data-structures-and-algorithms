@@ -9,65 +9,96 @@ describe('Linked List', () => {
   // 06 - Linked List Insertions
   //  X  Can successfully add a node to the end of the linked list
   //  X  Can successfully add multiple nodes to the end of a linked list
-  //  O  Can successfully insert a node before a node located i the middle of a linked list
-  //  O  Can successfully insert a node before the first node of a linked list
-  //  O  Can successfully insert after a node in the middle of the linked list
-  //  O  Can successfully insert a node after the last node of the linked list
+  //  X  Can successfully insert a node before a node located i the middle of a linked list
+  //  X  Can successfully insert a node before the first node of a linked list
+  //  X  Can successfully insert after a node in the middle of the linked list
+  //  X  Can successfully insert a node after the last node of the linked list
 
-  it('inserts new node(s) at the end of the list', () => {
+  it('inserts new node(s) at the END of the list', () => {
     const list = new LinkedList();
     list.append('thing');
     list.append('other thing');
     list.append('more stuff'); // This is the tail of the list
+    //console.log('list test 1:', list.toString());
     // Traverse the list until 'next === null' is found.
     let currentNode = list.head;
     while(currentNode.next !== null) { // Look for .next = null
-      currentNode = currentNode.next;
+      currentNode = currentNode.next; // Move one node deeper
     }
     // We can assume that when currentNode passes the while currentNode.next = null
+    // list test 1: {thing} -> {other thing} -> {more stuff} -> NULL
     expect(currentNode.value).toEqual('more stuff');
     expect(currentNode.next).toBeNull();
   });
-  it('inserts new node before the `thing` at middle of the list', () => {
+  it('inserts new node BEFORE the `thing` at middle of the list', () => {
     const list = new LinkedList();
     list.append('other thing');
-    // val:test me next: thing
     list.append('thing');
-    list.append('i can do this all day'); // Well said.
+    list.append('thing too');
     list.insertBefore('thing', 'test me');
+    //console.log('list test 2:', list.toString());
     // Traverse the list until 'next === thing' is found.
-    console.log('List', toString());
     let currentNode = list.head;
-    while(currentNode.next !== 'thing') { // Look for .next = thing
+    while(currentNode.next.value !== 'thing') { // Look for .next = thing
+      currentNode = currentNode.next; // Move one node deeper
+    }
+    // We can assume that currentNode.next === 'thing'
+    // list test 2: {other thing} -> {test me} -> {thing} -> {thing too} -> NULL
+    expect(currentNode.value).toEqual('test me');
+    expect(currentNode.next.value).toEqual('thing');
+  });
+  it('inserts a node BEFORE the `thing` at the head of a linked list', () => {
+    const list = new LinkedList();
+    list.append('thing');
+    list.append('other thing');
+    list.append('thing too');
+    list.insertBefore('thing', 'test me');
+    //console.log('list test 3:', list.toString());
+    // Traverse the list until 'next === thing' is found.
+    let currentNode = list.head;
+    while(currentNode.next.value !== 'thing') { // Look for .next = thing
+      currentNode = currentNode.next; // Move one node deeper
+    }
+    // We can assume that currentNode.next === 'thing'
+    // list test 3: {test me} -> {thing} -> {other thing} -> {thing too} -> NULL
+    expect(list.head.value).toEqual('test me');
+    expect(list.head.next.value).toEqual('thing');
+  });
+  it('inserts new node AFTER the `thing` at middle of the list', () => {
+    const list = new LinkedList();
+    list.append('other thing');
+    list.append('thing');
+    list.append('thing too');
+    list.insertAfter('thing', 'test me');
+    //console.log('list test 4:', list.toString());
+    // Traverse the list until 'next === thing' is found.
+    let currentNode = list.head;
+    while(currentNode.next.value !== 'test me') { // Look for .next = 'test me'
+      currentNode = currentNode.next; // Move one node deeper
+    }
+    // We can assume that currentNode.next === 'thing'
+    // list test 4: {other thing} -> {thing} -> {test me} -> {thing too} -> NULL
+    expect(currentNode.value).toEqual('thing');
+    expect(currentNode.next.value).toEqual('test me');
+  });
+  it('inserts a node AFTER the `thing` at the tail of a linked list', () => {
+    const list = new LinkedList();
+    list.append('other thing');
+    list.append('thing too');
+    list.append('thing');
+    list.insertAfter('thing', 'test me');
+    //console.log('list test 5:', list.toString());
+    // Traverse the list until 'next === thing' is found.
+    let currentNode = list.head;
+    while(currentNode.value !== 'thing') { // Look for .next = thing
       currentNode = currentNode.next;
     }
     // We can assume that currentNode.next === 'thing'
-    //expect(currentNode.value).toEqual('test me');
-    expect(currentNode.next).toEqual('thing');
+    // list test 5: {other thing} -> {thing too} -> {thing} -> {test me} -> NULL
+    expect(currentNode.value).toEqual('thing');
+    expect(currentNode.next.value).toEqual('test me');
+    expect(currentNode.next.next).toBeNull();
   });
-  // insertBefore(value, newVal)
-  it('inserts a node before the `thing` at the head of a linked list', () => {
-    const list = new LinkedList();
-    list.append('thing'); // This is the current head
-    list.append('i can do this all day');
-    list.append('other thing');
-    list.insertBefore('thing', 'test me');
-    // Simply set the currentNode to the head.
-    let headNode = list.head;
-    // We can assume that currentNode.next = 'thing' (what we inserted before) and...
-    // ...that the head node's properties should:
-    expect(headNode.value).toEqual('test me');
-    expect(headNode.next).toEqual('thing');
-  });
-  //insertAfter(value, newVal)
-  it('inserts new node after the `thing` at middle of the list', () => {
-
-  });
-  //insertAfter(value, newVal)
-  it('insert a node after the `thing` at the end of a linked list', () => {
-
-  });
-
 
   // 05 - Linked List
   //  X  Can successfully instantiate an empty linked list
@@ -83,6 +114,8 @@ describe('Linked List', () => {
     list.insert('thing');
     list.insert('other thing');
     list.insert('more stuff');
+    //console.log('Test 05 - 1:', list.toString());
+    // Test 05 - 1: {more stuff} -> {other thing} -> {thing} -> NULL
     expect(list.head.value).toEqual('more stuff');
   });
   it('includes - returns true if value is in list', () => {
@@ -90,6 +123,8 @@ describe('Linked List', () => {
     list.insert('thing');
     list.insert('other thing');
     list.insert('more stuff');
+    //console.log('Test 05 - 2:', list.toString());
+    // Test 05 - 1: {more stuff} -> {other thing} -> {thing} -> NULL
     expect(list.includes('thing')).toBe(true);
   });
   it('includes - returns false if value is not in list', () => {
@@ -97,6 +132,8 @@ describe('Linked List', () => {
     list.insert('thing');
     list.insert('other thing');
     list.insert('more stuff');
+    //console.log('Test 05 - 3:', list.toString());
+    // Test 05 - 1: {more stuff} -> {other thing} -> {thing} -> NULL
     expect(list.includes('exists')).toBe(false);
   });
   it('turns the values into a string', () => {
@@ -104,7 +141,8 @@ describe('Linked List', () => {
     list.insert('thing');
     list.insert('other thing');
     list.insert('more stuff');
+    //console.log('Test 05 - 4:', list.toString());
+    // Test 05 - 1: {more stuff} -> {other thing} -> {thing} -> NULL
     expect(list.toString()).toEqual('{more stuff} -> {other thing} -> {thing} -> NULL');
   });
-  // expected string output: {head, value:'thing', next: {{head, value:'other thing', next: {{head, value:'more stuff', next: {}}}}
 });

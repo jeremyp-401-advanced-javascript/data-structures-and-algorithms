@@ -33,69 +33,63 @@ class LinkedList {
 
     // Make a new node with the newVal from the argument
     const node = new Node(newVal);
-    // Set our new node's next to the value
-    node.next = value;
-
     // Cover edge case where list is empty.
     if (!this.head) { // If the list has no head (== null -> it was just created) then...
       const error = new Error('Can not search an empty linked list.'); // There is nothing to search for
       return error; // Return the error to the user
     }
+    // Start at the head for our while loop.
+    let currentNode = this.head;
 
-    // Traverse the list 'next === value' is found.
-    let currentNode = this.head; // Start at the head
-
-    while(currentNode.value !== value) { // Loop list until value is found
-      // What if the value doesn't match AND currentNode.next is null?
-      if (currentNode.next === null) { // What if we've ended the list?
-        const error = new Error('Value not found in list.');
-        return error; // Value not found, send error
-      } else { // Value not found, but there is a next in currentNode...
+    while (currentNode !== null) { // Until the end of the list...
+      if (this.head.value === value) { // If currentNode is the head...
+        this.insert(newVal); // ...make our node the head instead
+        break;
+      }
+      if (currentNode.next.value === value) { // Search for value in the next node
+        node.next = currentNode.next; // When found, set our node's next to it's next.
+        currentNode.next = node; // Set it's next to our node...
+        break; // ...and leave the while loop.
+      } else { // Value not found, let's move on...
         currentNode = currentNode.next; // Set currentNode to the next node and restart loop
       }
     }
-
-    // When it is found, point next to the new node
-    if (currentNode.head) { // Oh, this is the head of the list?
-      return this.append(newVal); // Well, we have something for that [specifically append(newVal)]...
-    } else { // But if it isn't, that's fine...
-      currentNode.next = node; // ...just set our node to be currentNode.next
+    // Finally, if currentNode is null
+    if (!currentNode) {
+      return new Error('Value not found in list.');
     }
-    console.log(this.toString());
   }
+
   insertAfter(value, newVal) {
   // Add a new node with `newVal` immediately after the first node containing `value`
 
     // Make a new node with the newVal from the argument
     const node = new Node(newVal);
-
     // Cover edge case where list is empty.
     if (!this.head) { // If the list has no head (it was just created) then...
       const error = new Error('Can not search an empty linked list.'); // There is nothing to search for
       return error; // Return the error to the user
     }
-
     // Traverse the list 'next === value' is found.
     let currentNode = this.head; // Start at the head
 
-    while(currentNode.value !== value) { // Loop list until value is found
-      // What if the value doesn't match AND currentNode.next is null?
-      if (currentNode.next === null) { // What if we've ended the list?
-        const error = new Error('Value not found in list.');
-        return error; // Value not found, send error
-      } else { // Value not found, but there is a next in currentNode...
+    while (currentNode !== null) { // Until the end of the list...
+      if (currentNode.next === null) { // If currentNode is the tail...
+        this.append(newVal); // ...make our node the tail instead
+        break;
+      }
+      if (currentNode.value === value) { // Search for value in the next node
+        node.next = currentNode.next; // When found, set our node's next to it's next.
+        currentNode.next = node; // Set it's next to our node...
+        break; // ...and leave the while loop.
+      } else { // Value not found, let's move on...
         currentNode = currentNode.next; // Set currentNode to the next node and restart loop
       }
     }
-
-    // When it's found, point next to the new node
-    if (currentNode.next === null) { // Oh, this is the tail of the list?
-      return this.insert(newVal); // Well, we have something for that [specifically insert(newVal)]...
-    } else { // But if it isn't, that's okay too...
-      node.next = currentNode.next; // ...just set our new node's next to the value...
-      currentNode.next = node; // ...and finally set our node to be currentNode.next
+    // Finally, if currentNode is null
+    if (!currentNode) {
+      return new Error('Value not found in list.');
     }
-
   }
   insert(value) {
   // Take a 'value' and adds a new node with that value to the head of the list
