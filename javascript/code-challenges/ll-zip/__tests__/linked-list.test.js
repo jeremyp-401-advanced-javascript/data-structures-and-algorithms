@@ -7,8 +7,8 @@ describe('Linked List', () => {
 // Write tests to prove the following functionality:
   // 08 - Linked List Zip Lists
   //  X  Where either linked list is empty
-  //  O  Where `linkedListOne` is smaller than `linkedListTwo`
-  //  O  Where `linkedListTwo` is smaller than `linkedListOne`
+  //  X  Where `linkedListOne` is smaller than `linkedListTwo`
+  //  X  Where `linkedListTwo` is smaller than `linkedListOne`
   it('throws an error if either linked list is empty', () => {
     const listOne = new LinkedList();
     const listTwo = new LinkedList();
