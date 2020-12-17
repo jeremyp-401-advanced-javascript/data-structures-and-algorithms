@@ -32,7 +32,7 @@ Write the methods below as extensions to the LinkedList class.
 - LinkedList.insertBefore() - O(1) (plus time to search for value)
 - LinkedList.insertAfter() - O(1) (plus time to search for value)
 
-## Testing (Currently Incomplete)
+## Testing
 
 Write tests to prove the following functionality:
 
