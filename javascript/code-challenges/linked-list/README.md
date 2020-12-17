@@ -5,8 +5,6 @@ Within your LinkedList class, include a head property. Upon instantiation, an em
 
 Also, create the three methods mentioned below.
 
-## Challenge
-
 **Create a linked list with three different methods:**
 
 >`insert(value)` (adds a new node with `value` to the head of the linked list)  
@@ -25,7 +23,6 @@ Also, create the three methods mentioned below.
 >Input: none  
 >Output: a representation of the linked list as a string  
 >- Format: `"{ a } -> { b } -> { c } -> NULL"`
->
 >Edge cases:
 >- The linked list is empty
 
