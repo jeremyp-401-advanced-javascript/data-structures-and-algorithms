@@ -38,9 +38,9 @@ Write three classes, `Stack`, `Queue` and `Node`. The `Stack` class will have a 
 >Edge Case(s):
 >- Attempting to `dequeue()` on an empty queue throws an exception
 
->`.peek()` (returns the `value` of the node at the `top` of the stack)  
+>`.peek()` (returns the `value` of the node at the `front` of the queue)  
 >Input: none  
->Output: the `value` of the node at the `top` of the queue  
+>Output: the `value` of the node at the `front` of the queue  
 >Edge case(s):
 >- Attempting to `peek()` on an empty queue throws an exception
 
@@ -48,9 +48,27 @@ Write three classes, `Stack`, `Queue` and `Node`. The `Stack` class will have a 
 >Input: none  
 >Output: a boolean representing whether the queue is empty  
 
+**PseudoQueue should have these three different methods:**
+
+>`.enqueue(value)` (adds a node with `value` to the `end` of the pseudoqueue)  
+>Input: a `value` object to add to the pseudoqueue's `end`  
+>Output: none  
+
+>`.dequeue()` (remove the node at the `top` of the pseudoqueue and return its `value`)  
+>Input: none  
+>Output: the `value` of the node removed from the `top` of the pseudoqueue  
+>Edge Case(s):
+>- Attempting to `dequeue()` on an empty pseudoqueue throws an exception
+
+>`.peek()` (returns the `value` of the node at the `top` of the pseudoqueue)  
+>Input: none  
+>Output: the `value` of the node at the `top` of the pseudoqueue  
+>Edge case(s):
+>- Attempting to `peek()` on an empty pseudoqueue throws an exception
+
 ## Approach & Efficiency
 
-(1) I found that it was necessary to also add an `end` property to the `Queue` class to maintain O(1) time performance.
+(1) I found that it was necessary to also add an `end` property to the `Queue` and `PseudoQueue` class to maintain O(1) time performance.
 
 ### Big O Notation
 
@@ -60,17 +78,35 @@ Write three classes, `Stack`, `Queue` and `Node`. The `Stack` class will have a 
 
 Write tests to prove the following functionality:
 
-- Can successfully push onto a stack
-- Can successfully push multiple values onto a stack
-- Can successfully pop off the stack
-- Can successfully empty a stack after multiple pops
-- Can successfully peek the next item on the stack
-- Can successfully instantiate an empty stack
-- Calling pop or peek on empty stack raises exception
-- Can successfully enqueue into a queue
-- Can successfully enqueue multiple values into a queue
-- Can successfully dequeue out of a queue the expected value
-- Can successfully peek into a queue, seeing the expected value
-- Can successfully empty a queue after multiple dequeues
-- Can successfully instantiate an empty queue
-- Calling dequeue or peek on empty queue raises exception
+- Stacks
+  - Can successfully push onto a stack
+  - Can successfully push multiple values onto a stack
+  - Can successfully pop off the stack
+  - Can successfully empty a stack after multiple pops
+  - Can successfully peek the next item on the stack
+  - Can successfully instantiate an empty stack
+  - Calling pop or peek on empty stack raises exception
+
+- Queues
+  - Can successfully enqueue into a queue
+  - Can successfully enqueue multiple values into a queue
+  - Can successfully dequeue out of a queue the expected value
+  - Can successfully peek into a queue, seeing the expected value
+  - Can successfully empty a queue after multiple dequeues
+  - Can successfully instantiate an empty queue
+  - Calling dequeue or peek on empty queue raises exception
+
+- PseudoQueues
+  - Can successfully enqueue a value onto a pseudoqueue
+  - Can successfully enqueue multiple values onto a pseudoqueue
+  - Can successfully dequeues out of a pseudoqueue the expected value
+  - Can successfully empty a pseudoqueue after multiple dequeues
+  - Can successfully peek the first item on the pseudoqueue
+  - Can successfully instantiate an empty pseudoqueue
+  - Calling dequeue or peek on empty pseudoqueue raises exception
+
+## Whiteboard(s)
+
+_Whiteboard(s) may not contain the final coded solution and are time-boxed._
+
+![code-challenge-11](./assets/CodeChallenge11-WhiteboardSS.png)
