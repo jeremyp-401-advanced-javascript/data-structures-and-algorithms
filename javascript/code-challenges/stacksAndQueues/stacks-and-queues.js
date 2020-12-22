@@ -85,10 +85,54 @@ class Queue { // Create a queue class
     // Return boolean if queue is empty
     return (!this.front) ? true : false;
   }
-
 }
 
-module.exports = {
-  Stack: Stack,
-  Queue: Queue
-};
+class PseudoQueue extends Stack {
+  constructor() {
+    super();
+    this.stackTwo = new Stack();
+    this.top = null;
+    this.end = null;
+  }
+
+  enqueue(value) { // O(1)
+    this.stackTwo.push(value); // Push the value to the temporary stack
+    if (!this.top) { // If the original PseudoQueue has nothing in it...
+      this.top = this.stackTwo.top; // So, set the pseudoqueue top to the stackTwo's top...
+      this.end = this.stackTwo.top; // ...and set the pseudoqueue end to stackTwo's top.
+      this.stackTwo.top = null; // Empty stackTwo
+      return;
+    } else { // ...but if it does...
+      this.end.next = this.stackTwo.top; // Set the current end's next to our new node.
+      this.end = this.stackTwo.top; // Set the new end to the node in the temporary queue.
+      this.stackTwo.top = null; // Empty stackTwo
+    }
+    return;
+  }
+
+  dequeue() { // O(1)
+    if (!this.top) { // If the PseudoStack is empty...
+      throw 'Can not remove from an empty pseudostack!'; // Throw an error
+    }
+    if (this.top === this.end) { // The stack will be empty after this is removed.
+      let dequeuedVal = this.top.value; // Temporarily store the value of the top of the stack
+      this.top = null; // Set the top of the node to null.
+      this.end = null; // Set the end of the node to null.
+      return dequeuedVal;
+    } else { // There is still going to be something left.
+      let dequeuedVal = this.top.value; // Store the thing at the top of the stack in a variable.
+      this.top = this.top.next; // So, the queue front becomes whatever was the queue's front.next
+      return dequeuedVal; // Return the value that we dequeued.
+    }
+  }
+
+  peek() { // O(1)
+    if (!this.top) { // If there is no top then the queue is empty.
+      throw 'Can not peek at an empty pseudoqueue!'; // Throw an error.
+    } else { // There is a top, so...
+      return this.top.value; // Return the value of the top.
+    }
+  }
+}
+
+module.exports = { Stack, Queue, PseudoQueue };
