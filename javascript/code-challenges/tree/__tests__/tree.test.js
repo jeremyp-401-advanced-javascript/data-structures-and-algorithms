@@ -5,7 +5,7 @@ const { Node, BinarySearchTree } = require('../tree');
 // Write tests to prove the following functionality:
 
 //     Can successfully instantiate a new node
-//     successfully instantiate an empty Binary Search Tree
+//     Can successfully instantiate an empty Binary Search Tree
 //     Can successfully instantiate a tree with a single root node
 //     Can successfully add a left child and right child to a single root node
 //     Can successfully returns null on BinaryTree methods if called on an empty tree
