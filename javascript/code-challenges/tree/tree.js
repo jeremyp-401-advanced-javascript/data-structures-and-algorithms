@@ -12,6 +12,7 @@ class BinaryTree {
   constructor() {
     this.root = null;
   }
+  // Depth First Search
   preOrder() { // Pre-order: root >> left >> right
     let outputArray = [];
     let currentNode = this.root;
@@ -27,6 +28,7 @@ class BinaryTree {
       return outputArray;
     }
   }
+  // Depth First Search
   inOrder() { // left >> root >> right
     let outputArray = [];
     let currentNode = this.root;
@@ -42,6 +44,7 @@ class BinaryTree {
       return outputArray;
     }
   }
+  // Depth First Search
   postOrder() { // left >> right >> root
     let outputArray = [];
     let currentNode = this.root;
@@ -60,56 +63,57 @@ class BinaryTree {
 }
 
 class BinarySearchTree extends BinaryTree {
-  add(value) { // Add a new node with value to the correct location in BinarySearchTree
-    let currentNode = new Node(value);
+  add(value) { // Add a new node with value to the bottom of the BinarySearchTree
+    let currentNode;
+    if (Number.isInteger(value)) { currentNode = new Node(value); } else { return null; }
     if (!this.root) { // Null tree error handling
       this.root = currentNode;
     } else {
-      let addNode = (node, currentNode) => {
+      let _addNode = (node, currentNode) => {
         if (currentNode.value < node.value) { // If currentNode is smaller...
           // ...go left...
           if (!node.leftChild) { // ...if leftChild is null
             node.leftChild = currentNode;
           } else { // ...or if it isn't null keep searching to the left.
-            addNode(node.leftChild, currentNode);
+            _addNode(node.leftChild, currentNode);
           }
         } else { // If currentNode is larger...
           // ...go right...
           if (!node.rightChild) { // ...if rightChild is null
             node.rightChild = currentNode;
           } else { // ...or if it isn't null keep searching to the right.
-            addNode(node.rightChild, currentNode);
+            _addNode(node.rightChild, currentNode);
           }
         }
       };
-      addNode(this.root, currentNode);
+      _addNode(this.root, currentNode);
     }
   }
   contains(value) { // Returns a boolean if value is in the tree (at least once)
     if (!this.root) { // Null tree error handling
       return false;
     } else {
-      let containsNode = (node, value) => {
+      let _containsNode = (node, value) => {
         if (value < node.value) { // If currentNode is smaller...
           // ...go left...
           if (!node.leftChild) { // ...if leftChild is null
             return false;
           } else { // ...or if it isn't null keep searching to the left.
-            containsNode(node.leftChild, value);
+            _containsNode(node.leftChild, value);
           }
         } else if (value > node.value) { // If currentNode is larger...
           // ...go right...
           if (!node.rightChild) { // ...if rightChild is null
             return false;
           } else { // ...or if it isn't null keep searching to the right.
-            containsNode(node.rightChild, value);
+            _containsNode(node.rightChild, value);
           }
         } else if (value === node.value) { // If currentNode is the same as node
           return true;
         }
         return false;
       };
-      return containsNode(this.root, value);
+      return _containsNode(this.root, value);
     }
   }
 }
