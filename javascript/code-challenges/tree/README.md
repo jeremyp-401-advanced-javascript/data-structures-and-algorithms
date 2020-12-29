@@ -5,7 +5,7 @@ Create a Node class
 
 Create a BinaryTree class
 
-- Define a method for each of the depth first traversals called preOrder, inOrder, and postOrder which returns an array of the values, ordered appropriately.
+- Define a method for each of the depth first traversals called preOrder, inOrder, and postOrder which returns an array of the values, ordered appropriately. Also add findMaximumValue(arr) which find the maximum value in an array returned by the previous methods.
 
 Create a BinarySearchTree class
 
@@ -14,25 +14,28 @@ Create a BinarySearchTree class
 
 ## Authors
 
-Authors: Jeremy Penning
-
+Authors: Jeremy Penning  
 Co-Author: I proudly worked with Tahmina Ringer on this one.
 
 ## Challenge
 
-**BinaryTree should have these three different methods:**
+**BinaryTree should have these four different methods:**
 
 >`.preOrder()` ()  
->Input: the binary tree the method is called on.  
->Output: array of values using preOrder sort.
+>Input: the binary tree the method is called on  
+>Output: array of values using preOrder sort
 
 >`.inOrder()` ()  
->Input: the binary tree the method is called on.  
->Output: array of values using inOrder sort.
+>Input: the binary tree the method is called on  
+>Output: array of values using preOrder sort
 
 >`.postOrder()` ()  
->Input: the binary tree the method is called on.  
->Output: array of values using postOrder sort.
+>Input: the binary tree the method is called on  
+>Output: array of values using inOrder sort
+
+>`.findMaximumValue(arr)` (takes in an array returned by one of the methods above)  
+>Input: an array returned by `preOrder()`, `inOrder()` or `postOrder()`  
+>Output: an integer with the maximum value found in the tree
 
 **BinarySearchTree should have these two different methods:**
 
@@ -61,5 +64,6 @@ Write tests to prove the following functionality:
 - Can successfully return a collection from a preorder traversal
 - Can successfully return a collection from an inorder traversal
 - Can successfully return a collection from a postorder traversal
+- Can successfully return the correct maximum value from the tree
 - Can successfully returns true when running contains() on good value
 - Can successfully returns false when running contains() on bad value
