@@ -51,9 +51,24 @@ describe('BinaryTree Methods', () => {
     let preOrder = tree.preOrder();
     let inOrder = tree.inOrder();
     let postOrder = tree.postOrder();
+    let preOrderArray = tree.preOrder();
+    let findMax = tree.findMaximumValue(preOrderArray);
     expect(preOrder).toBeNull();
     expect(inOrder).toBeNull();
     expect(postOrder).toBeNull();
+    expect(findMax).toBeNull();
+  });
+  it('successfully finds a maximum value using preOrder traversal', () => {
+    let tree = new BinarySearchTree();
+    tree.add(4);
+    tree.add(2);
+    tree.add(6);
+    tree.add(1);
+    tree.add(3);
+    tree.add(5);
+    let preOrderArray = tree.preOrder();
+    let findMax = tree.findMaximumValue(preOrderArray);
+    expect(findMax).toEqual(6);
   });
   it('successfully return a collection from a preOrder traversal', () => {
     let tree = new BinarySearchTree();

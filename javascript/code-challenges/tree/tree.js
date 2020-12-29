@@ -12,6 +12,7 @@ class BinaryTree {
   constructor() {
     this.root = null;
   }
+
   // Depth First Search
   preOrder() { // Pre-order: root >> left >> right
     let outputArray = [];
@@ -59,6 +60,21 @@ class BinaryTree {
       traverseTree(currentNode);
       return outputArray;
     }
+  }
+
+  findMaximumValue(arr) {
+    if(!arr) {
+      return null;
+    }
+    let largestSoFar = null;
+    console.log(arr);
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > largestSoFar) {
+        largestSoFar = arr[i];
+      }
+    }
+
+    return largestSoFar;
   }
 }
 
