@@ -5,7 +5,7 @@ Create a Node class
 
 Create a BinaryTree class
 
-- Define a method for each of the depth first traversals called preOrder, inOrder, and postOrder which returns an array of the values, ordered appropriately. Also add findMaximumValue(arr) which find the maximum value in an array returned by the previous methods.
+- Define a method for each of the depth first traversals called preOrder, inOrder, and postOrder which returns an array of the values, ordered appropriately. Also add findMaximumValue(arr) which find the maximum value in an array returned by the previous methods. Add a breadthFirst method which should return an array representing a level order traversal.
 
 Create a BinarySearchTree class
 
@@ -19,7 +19,7 @@ Co-Author: I proudly worked with Tahmina Ringer on this one.
 
 ## Challenge
 
-**BinaryTree should have these four different methods:**
+**BinaryTree should have these five different methods:**
 
 >`.preOrder()` ()  
 >Input: the binary tree the method is called on  
@@ -37,6 +37,10 @@ Co-Author: I proudly worked with Tahmina Ringer on this one.
 >Input: an array returned by `preOrder()`, `inOrder()` or `postOrder()`  
 >Output: an integer with the maximum value found in the tree
 
+>`.breadthFirst()` ()  
+>Input: the binary tree the method is called on  
+>Output: array of values using breadth first, level order sort
+
 **BinarySearchTree should have these two different methods:**
 
 >`.add(value)` (adds a node with `value` to the binary search tree)  
@@ -51,7 +55,7 @@ Co-Author: I proudly worked with Tahmina Ringer on this one.
 
 ### Big O Notation
 
-- Binary search tree insertion and search is a worst case of O(log n) on a balanced tree, or on an unbalanced tree it is O(height). Space should be Big O(1) for search.
+- Binary search tree insertion and search is a worst case of O(log n) on a balanced tree, or on an unbalanced tree it is O(height). Space should be Big O(1) for search. For methods that show a representation of the tree the Big O time varies from O(1) to O(height^2).
 
 ## Testing
 
@@ -67,9 +71,11 @@ Write tests to prove the following functionality:
 - Can successfully return the correct maximum value from the tree
 - Can successfully returns true when running contains() on good value
 - Can successfully returns false when running contains() on bad value
+- Can successfully return a collection from breadth first traversal
 
 ## Whiteboard(s) / UML
 
 _Whiteboard(s) may not contain the final coded solution and are time-boxed._
 
 ![code-challenge-16](./assets/CodeChallenge16-WhiteboardSS.png)
+![code-challenge-17](./assets/CodeChallenge17-WhiteboardSS.png)
