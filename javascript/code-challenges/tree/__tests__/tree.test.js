@@ -139,6 +139,7 @@ describe('BinaryTree Methods', () => {
     let findMax = tree.findMaximumValue();
     expect(findMax).toEqual(6);
   });
+
   it('successfully return a collection from breadth first traversal', () => {
     let tree = new BinarySearchTree();
     tree.add(4);

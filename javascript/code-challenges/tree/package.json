@@ -1,0 +1,19 @@
+{
+  "name": "tree",
+  "version": "1.0.0",
+  "description": "Binary Tree Classes and Methods",
+  "main": "tree.js",
+  "scripts": {
+    "test": "jest test --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremyp-401-advanced-javascript/data-structures-and-algorithms.git"
+  },
+  "author": "Jeremy Penning",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeremyp-401-advanced-javascript/data-structures-and-algorithms/issues"
+  },
+  "homepage": "https://github.com/jeremyp-401-advanced-javascript/data-structures-and-algorithms#readme"
+}
