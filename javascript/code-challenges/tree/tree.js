@@ -62,12 +62,27 @@ class BinaryTree {
     }
   }
 
-  findMaximumValue(arr) {
+  findMaximumValue() {
+    let maxValue = null;
+    let currentNode = this.root;
+    if (!currentNode) { // Null tree error handling
+      return null;
+    } else {
+      let traverseTree = currentNode => {
+        if (currentNode.value > maxValue) { maxValue = currentNode.value; }
+        if (currentNode.leftChild) { traverseTree(currentNode.leftChild); }
+        if (currentNode.rightChild) { traverseTree(currentNode.rightChild); }
+      };
+      traverseTree(currentNode);
+      return maxValue;
+    }
+  }
+
+  oldFindMaximumValue(arr) {
     if(!arr) {
       return null;
     }
     let largestSoFar = null;
-    console.log(arr);
     for (let i = 0; i < arr.length - 1; i++) {
       if (arr[i] > largestSoFar) {
         largestSoFar = arr[i];
