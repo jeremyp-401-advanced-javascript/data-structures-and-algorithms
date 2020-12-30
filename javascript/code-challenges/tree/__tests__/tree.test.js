@@ -12,8 +12,11 @@ const { Node, BinarySearchTree } = require('../tree');
 //     Can successfully return a collection from a preorder traversal
 //     Can successfully return a collection from an inorder traversal
 //     Can successfully return a collection from a postorder traversal
-//     Can successfully returns true when running contains() on good value
-//     Can successfully returns false when running contains() on bad value
+//     Can successfully return true when running contains() on good value
+//     Can successfully return false when running contains() on bad value
+//     Can successfully find a maximum value using preOrder traversal (OLD)
+//     Can successfully find a maximum value in the tree
+//     Can successfully return a collection from breadth first traversal
 
 describe('Node Constructor', () => {
   it('successfully instantiates a new node', () => {
@@ -51,9 +54,12 @@ describe('BinaryTree Methods', () => {
     let preOrder = tree.preOrder();
     let inOrder = tree.inOrder();
     let postOrder = tree.postOrder();
+    let preOrderArray = tree.preOrder();
+    let findMax = tree.oldFindMaximumValue(preOrderArray);
     expect(preOrder).toBeNull();
     expect(inOrder).toBeNull();
     expect(postOrder).toBeNull();
+    expect(findMax).toBeNull();
   });
   it('successfully return a collection from a preOrder traversal', () => {
     let tree = new BinarySearchTree();
@@ -109,5 +115,45 @@ describe('BinaryTree Methods', () => {
     tree.add(5);
     let contains = tree.contains(9);
     expect(contains).toBe(false);
+  });
+  it('successfully find a maximum value using preOrder traversal (OLD)', () => {
+    let tree = new BinarySearchTree();
+    tree.add(4);
+    tree.add(2);
+    tree.add(6);
+    tree.add(1);
+    tree.add(3);
+    tree.add(5);
+    let preOrderArray = tree.preOrder();
+    let findMax = tree.oldFindMaximumValue(preOrderArray);
+    expect(findMax).toEqual(6);
+  });
+  it('successfully find a maximum value in the tree', () => {
+    let tree = new BinarySearchTree();
+    tree.add(4);
+    tree.add(2);
+    tree.add(6);
+    tree.add(1);
+    tree.add(3);
+    tree.add(5);
+    let findMax = tree.findMaximumValue();
+    expect(findMax).toEqual(6);
+  });
+  it('successfully return a collection from breadth first traversal', () => {
+    let tree = new BinarySearchTree();
+    tree.add(4);
+    tree.add(2);
+    tree.add(7);
+    tree.add(1);
+    tree.add(3);
+    tree.add(5);
+    tree.add(9);
+    tree.add(8);
+    tree.add(6);
+    tree.add(0);
+    tree.add(10);
+    tree.add(11);
+    let levelOrder = tree.breadthFirstNoPush();
+    expect(levelOrder).toEqual([4, 2, 7, 1, 3, 5, 9, 0, 6, 8, 10, 11]);
   });
 });
