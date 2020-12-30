@@ -67,3 +67,9 @@ Write tests to prove the following functionality:
 - Can successfully return the correct maximum value from the tree
 - Can successfully returns true when running contains() on good value
 - Can successfully returns false when running contains() on bad value
+
+## Whiteboard(s) / UML
+
+_Whiteboard(s) may not contain the final coded solution and are time-boxed._
+
+![code-challenge-16](./assets/CodeChallenge16-WhiteboardSS.png)
