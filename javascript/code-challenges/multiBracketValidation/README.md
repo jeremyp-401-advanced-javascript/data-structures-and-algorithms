@@ -18,7 +18,7 @@ There are 3 types of brackets:
 
 ### Big O Notation
 
-- 
+- For the worst case O(n) can be expected for space and time.
 
 ## Testing
 
