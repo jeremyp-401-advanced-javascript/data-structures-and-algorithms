@@ -1,0 +1,11 @@
+{
+  "name": "insertionsort",
+  "version": "1.0.0",
+  "description": "An insertion sort algorithm",
+  "main": "insertionSort.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "author": "Jeremy Penning",
+  "license": "MIT"
+}
