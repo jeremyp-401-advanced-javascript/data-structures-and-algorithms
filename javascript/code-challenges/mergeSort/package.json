@@ -1,0 +1,11 @@
+{
+  "name": "mergesort",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mergeSort.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "author": "Jeremy Penning",
+  "license": "MIT"
+}
