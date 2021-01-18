@@ -1,0 +1,11 @@
+{
+  "name": "hashtable",
+  "version": "1.0.0",
+  "description": "Javascript HashTable",
+  "main": "hash-table.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "author": "Jeremy Penning",
+  "license": "MIT"
+}
