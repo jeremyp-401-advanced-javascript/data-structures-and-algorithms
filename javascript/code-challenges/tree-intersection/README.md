@@ -34,4 +34,6 @@ Write tests to prove the following functionality:
 
 ## Whiteboard/UML
 
+_Whiteboard(s) may not contain the final coded solution and are time-boxed._
+
 ![Whiteboard](./assets/CodeChallenge32-WhiteboardSS.jpg)
