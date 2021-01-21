@@ -18,10 +18,10 @@ Avoid utilizing any of the library methods available to your language.
 
 **Create a function leftJoin:**
 
->`leftJoin(hashTableLeft, hashTableRight)` (Joins `hashTableRight` on `hashTableLeft` and outputs an object showing the outcome)  
->Input: A hash table `hashTableLeft` and a hash table `hashTableRight` that will be joined if the values match the left.  
->Output: An `object` showing the outcome of the left join  
->Edge Case(s):  
+>**`leftJoin(hashTableLeft, hashTableRight)`** (Joins `hashTableRight` on `hashTableLeft` and outputs an object showing the outcome)  
+>**Input:** A hash table `hashTableLeft` and a hash table `hashTableRight` that will be joined if the values match the left.  
+>**Output:** An `object` showing the outcome of the left join  
+>**Edge Case(s):**  
 >- A value exists on the left that doesn't exist on the right (will insert NULL)  
 >- An empty hashTbl1 (will return an empty object)  
 >- An empty hashTbl2 (will immediately write out hashTbl1 to output object)  
@@ -43,5 +43,6 @@ Write tests to prove the following functionality:
 - [X] Returns an empty object if the left table is null.
 
 ## Whiteboard/UML
+_Whiteboard(s) may not contain the final coded solution and are time-boxed._
 
 ![Whiteboard](./assets/CodeChallenge33-WhiteboardSS.jpg)
