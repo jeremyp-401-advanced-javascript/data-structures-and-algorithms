@@ -78,35 +78,6 @@ class BinaryTree {
     }
   }
 
-  // breadthFirst() { // This took a lot to testing to determine why it won't work.
-  //   const rootNode = this.root;
-  //   let array = [];
-  //   let iter = 0;
-
-  //   if (!rootNode) {
-  //     return array; // Will be [ ]
-  //   } else {
-  //     array.push(rootNode.value);
-  //   }
-
-  //   function _recurseDown(iter, node) {
-  //     if (node.leftChild) {
-  //       array.push(node.leftChild.value);
-  //     }
-  //     if (node.rightChild) {
-  //       array.push(node.rightChild.value);
-  //     }
-  //     if (node.leftChild) {
-  //       _recurseDown(iter ,node.leftChild);
-  //     }
-  //     if (node.rightChild) {
-  //       _recurseDown(iter, node.rightChild);
-  //     }
-  //   }
-  //   _recurseDown(iter, rootNode);
-  //   return array;
-  // }
-
   breadthFirstNoPush() {
   // Adapted from code at:
   // https://learnersbucket.com/examples/algorithms/tree-traversal-in-javascript/
