@@ -1,0 +1,19 @@
+{
+  "name": "hashtable-left-join",
+  "version": "1.0.0",
+  "description": "Javascript HashTable Left Join",
+  "main": "left-join.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "author": "Jeremy Penning",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremyp-401-advanced-javascript/data-structures-and-algorithms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeremyp-401-advanced-javascript/data-structures-and-algorithms/issues"
+  },
+  "homepage": "https://github.com/jeremyp-401-advanced-javascript/data-structures-and-algorithms#readme"
+}
