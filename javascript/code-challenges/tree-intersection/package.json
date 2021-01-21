@@ -1,8 +1,8 @@
 {
-  "name": "hashtable",
+  "name": "tree-intersection",
   "version": "1.0.0",
   "description": "Javascript HashTable",
-  "main": "hash-table.js",
+  "main": "tree-intersection.js",
   "scripts": {
     "test": "jest --coverage"
   },

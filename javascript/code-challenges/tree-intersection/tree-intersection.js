@@ -8,30 +8,34 @@ function treeIntersection(tree1, tree2) {
     return outputArr;
   }
 
-  function walkTree(node, treeNum) {
+  function _walkTree(currentNode, treeNum) {
     if (treeNum === 1) {
-      hashTbl.add(node.value);
+      hashTbl.set(`${currentNode.value}`);
     } else if (treeNum === 2) {
-      hashTbl.contains(node.value);
-      addToOutput(node.value, outputArr);
+      if (hashTbl.contains(`${currentNode.value}`)) {
+        addToOutput(currentNode.value, outputArr);
+      }
     }
-    if (node.leftChild) { walkTree(node.leftChild); }
-    if (node.rightChild) { walkTree(node.rightChild); }
+    if (currentNode.leftChild) { _walkTree(currentNode.leftChild, treeNum); }
+    if (currentNode.rightChild) { _walkTree(currentNode.rightChild, treeNum); }
   }
-  walkTree(tree1.root, 1);
-  walkTree(tree2.root, 2);
+  _walkTree(tree1.root, 1);
+  _walkTree(tree2.root, 2);
 
   return outputArr;
 }
 
 function addToOutput(value, array) {
-  for (let arrIter = 0; arrIter < array.length - 1; arrIter++) {
-    if (array[arrIter] === value) {
-      return;
-    } else {
-      array[array.length] = value;
-    }
+  let isDuplicated = false;
+  // If there's nothing in the array then we can safely add this value
+  if (!array.length) { array[0] = value; }
+  // Search everything in the array for a duplicate
+  for (let i = 0; i < array.length; i++) {
+    isDuplicated = (array[i] === value) ? true : false;
   }
+  // If it wasn't duplicated, put it at the end of the array
+  if (!isDuplicated) { array[array.length] = value; }
+  return array;
 }
 
 module.exports = { treeIntersection, addToOutput };

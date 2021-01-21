@@ -28,8 +28,12 @@ For array insertion: O(n) due to checking for uniques
 
 Write tests to prove the following functionality:
 
-- [] Will add tests soon.
+- [X] Successfully outputs the values that intersect in two binary trees
+- [X] Successfully outputs an empty array if tree 1 is empty
+- [X] Successfully outputs an empty array if tree 2 is empty
 
 ## Whiteboard/UML
+
+_Whiteboard(s) may not contain the final coded solution and are time-boxed._
 
 ![Whiteboard](./assets/CodeChallenge32-WhiteboardSS.jpg)
