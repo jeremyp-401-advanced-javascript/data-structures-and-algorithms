@@ -32,7 +32,7 @@ The graph should include the following methods:
 >**Edge Case(s):**
 >- None
 
->`bfsSize(startVertex)` (returns the total number of nodes in the graph from `startVertex`)  
+>`bfsSize(startVertex)` (returns the total number of nodes in the graph from `startVertex` using breadth first search)  
 >**Input:** a `startVertex` to begin searching from  
 >**Output:** the total number of nodes in the graph from `startVertex`  
 >**Edge Case(s):**
