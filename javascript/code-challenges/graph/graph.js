@@ -8,7 +8,7 @@
 
 class Edge {
   constructor(vertex, weight){
-    this.vertex = vertex; // A vertex with vertex.value
+    this.vertex = vertex; // A vertex
     this.weight = weight; // An array that holds all the connected verticies
   }
 }
@@ -94,17 +94,24 @@ class Graph {
 
   bfs(startVertex) {
     const queue = [];
-
-    // a set is an object that will only store unique keys
+    // Add error checking for the startVertex argument.
+    if(startVertex == null || startVertex === ''){
+      throw new Error('Error: Need to call with a valid start vertex', startVertex);
+    }
+    // Add error checking for the start vertex.
+    if(!this.adjacencyList.has(startVertex) || !this.adjacencyList.size > 0){
+      throw new Error('Error: Start vertex was not found in graph');
+    }
+    // The visitedNodes is a set object that will only store unique keys
     const visitedNodes = new Set();
 
     queue.push(startVertex);
     visitedNodes.add(startVertex);
 
     while(queue.length) {
-      // remove the first item from the queue
+      // Remove the first item from the queue
       const currentNode = queue.shift();
-      // get all the neighbors of the node that I took off of the queuq
+      // Get all the neighbors of the node that I took off of the queue
       const neighbors = this.getNeighbors(currentNode);
 
       // loop over all of the neighbors
@@ -118,9 +125,9 @@ class Graph {
         } else {
           // otherwise, I haven't been there. I need to add it to the Set
           visitedNodes.add(neighborNode);
+          // put it into the queue
+          queue.push(neighborNode);
         }
-        // put it into the queuq
-        queue.push(neighborNode);
       }
     }
     // return the Set so I have a list of nodes of where I've been
