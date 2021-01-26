@@ -11,6 +11,7 @@ const { Edge, Graph } = require('../graph');
 // - [X] Calling addDirectedEdge with invalid verticies throws an error
 // - [X] Calling bfsSize with invalid vertex throws an error
 // - [X] Calling bfs on an empty graph throws an error
+// - [X] Calling bfs with a null argument throws an error
 // - [X] Calling dfs on an empty graph throws an error
 // - [X] A vertex can be successfully added to the graph
 // - [X] An edge can be successfully added to the graph
@@ -69,7 +70,13 @@ describe('Graph', () => {
     const graph = new Graph();
     expect(() => {
       graph.bfs('A');
-    }).toThrowError('Error: Invalid vertex');
+    }).toThrowError('Error: Start vertex was not found in grap');
+  });
+  it('Calling bfs with a null argument throws an error', () => {
+    const graph = new Graph();
+    expect(() => {
+      graph.bfs();
+    }).toThrowError('Error: Need to call with a valid start vertex');
   });
   it('Calling dfs on an empty graph throws an error', () => {
     const graph = new Graph();

@@ -96,3 +96,7 @@ Write tests to prove the following functionality:
 - [X] Calling bfs (breadth first search) returns expected output
 - [X] Calling dfs (depth first search) returns expected output
 - [X] Calling pathTo to returns expected output
+
+## Whiteboard / UML
+
+![Whiteboard](./assets/CodeChallenge36-WhiteboardSS.jpg)
