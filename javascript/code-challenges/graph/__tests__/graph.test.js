@@ -84,6 +84,20 @@ describe('Graph', () => {
       graph.dfs('A');
     }).toThrowError('Error: Invalid vertex');
   });
+  it('Calling getEdges on an empty graph throws an error', () => {
+    const graph = new Graph();
+    expect(() => {
+      graph.getEdges(['SEA','PDX']);
+    }).toThrowError('Error: Graph is empty');
+  });
+  it('Calling getEdges with an invalid argument throws an error', () => {
+    const graph = new Graph();
+    graph.addVertex('A');
+    graph.addDirectedEdge('A', 'A', 35);
+    expect(() => {
+      graph.getEdges();
+    }).toThrowError('Error: The list of verticies is invalid');
+  });
   it('A vertex can be successfully added to the graph', () => {
     const graph = new Graph();
     graph.addVertex('A');
@@ -188,5 +202,37 @@ describe('Graph', () => {
     let pathToRawOutput = graph.pathTo('A', 'D');
     let obj = Object.fromEntries(pathToRawOutput.entries());
     expect(obj).toEqual({'A': 'C', 'C': 'D'});
+  });
+  it('Calling getEdges to returns expected output', () => {
+    const graph = new Graph();
+    graph.addVertex('SEA');
+    graph.addVertex('PAE');
+    graph.addVertex('YVR');
+    graph.addVertex('YYZ');
+    graph.addVertex('MSP');
+    graph.addVertex('DEN');
+    graph.addVertex('PDX');
+    graph.addUndirectedEdge('SEA', 'PAE', 25);
+    graph.addUndirectedEdge('SEA', 'YVR', 45);
+    graph.addUndirectedEdge('SEA', 'DEN', 65);
+    graph.addUndirectedEdge('SEA', 'PDX', 35);
+    graph.addUndirectedEdge('PAE', 'YVR', 50);
+    graph.addUndirectedEdge('YVR', 'YYZ', 90);
+    graph.addUndirectedEdge('YYZ', 'MSP', 75);
+    graph.addUndirectedEdge('MSP', 'DEN', 45);
+    graph.addUndirectedEdge('DEN', 'PDX', 60);
+    let flightPath1 = ['SEA','YVR','YYZ'];
+    let flightPath2 = ['SEA','PAE','SEA','DEN','SEA'];
+    let flightPath3 = ['YYZ','MSP','PDX'];
+    let flightPath4 = ['LAX','ORD'];
+    let flightPath1Result = graph.getEdges(flightPath1);
+    let flightPath2Result = graph.getEdges(flightPath2);
+    let flightPath3Result = graph.getEdges(flightPath3);
+    let flightPath4Result = graph.getEdges(flightPath4);
+    console.log({flightPath1Result});
+    expect(flightPath1Result).toStrictEqual({'directConnect': true, 'totalCost': '$135'});
+    expect(flightPath2Result).toStrictEqual({'directConnect': true, 'totalCost': '$180'});
+    expect(flightPath3Result).toStrictEqual({'directConnect': false, 'totalCost': '$0'});
+    expect(flightPath4Result).toStrictEqual({'directConnect': false, 'totalCost': '$0'});
   });
 });
