@@ -70,11 +70,19 @@ The graph should include the following methods:
 >**Edge Case(s):**
 >- None, but should have handling to check for invalid `startVertex` and/or `endVertex`
 
+>`getEdges(routeArray)` (uses a `routeArray` of vertex names to determine if only single hops can be made to the end and the total route weight)  
+>**Input:** a `routeArray` of vertex names  
+>**Output:** an object stating whether only single hops can be made to the end and the total route weight  
+>**Edge Case(s):**
+>- One or more values in routeArr don't exist in graph (will return 'false' and '$0')
+>- The start value is not in the graph (will throw an error)
+>- The graph is empty (will throw an error)
+
 ## Approach & Efficiency
 
 ### Big O Notation
 
-When adding a vertex or an edge time is O(1), space is O(all vertices + all edges). All search methods other than adjacency list lookups are assumed to be are O(n^2).
+When adding a vertex or an edge time is O(1), space is O(all vertices + all edges). All search and traversal methods other than adjacency list lookups are assumed to be are O(n^2).
 
 ## Testing
 
@@ -86,7 +94,10 @@ Write tests to prove the following functionality:
 - [X] Calling addDirectedEdge with invalid verticies throws an error
 - [X] Calling bfsSize with invalid vertex throws an error
 - [X] Calling bfs on an empty graph throws an error
+- [X] Calling bfs with a null argument throws an error
 - [X] Calling dfs on an empty graph throws an error
+- [X] Calling getEdges on an empty graph throws an error
+- [X] Calling getEdges with an invalid argument throws an error
 - [X] A vertex can be successfully added to the graph
 - [X] An edge can be successfully added to the graph
 - [X] A collection of all nodes can be properly retrieved from the graph
@@ -96,7 +107,9 @@ Write tests to prove the following functionality:
 - [X] Calling bfs (breadth first search) returns expected output
 - [X] Calling dfs (depth first search) returns expected output
 - [X] Calling pathTo to returns expected output
+- [X] Calling getEdges to returns expected output
 
-## Whiteboard / UML
+## Whiteboard(s) / UML
 
 ![Whiteboard](./assets/CodeChallenge36-WhiteboardSS.jpg)
+![Whiteboard](./assets/CodeChallenge37-WhiteboardSS.jpg)
