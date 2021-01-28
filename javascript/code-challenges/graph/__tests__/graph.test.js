@@ -13,6 +13,7 @@ const { Edge, Graph } = require('../graph');
 // - [X] Calling bfs on an empty graph throws an error
 // - [X] Calling bfs with a null argument throws an error
 // - [X] Calling dfs on an empty graph throws an error
+// - [X] Calling bfs with a null argument throws an error
 // - [X] A vertex can be successfully added to the graph
 // - [X] An edge can be successfully added to the graph
 // - [X] A collection of all nodes can be properly retrieved from the graph
@@ -82,7 +83,13 @@ describe('Graph', () => {
     const graph = new Graph();
     expect(() => {
       graph.dfs('A');
-    }).toThrowError('Error: Invalid vertex');
+    }).toThrowError('Error: Start vertex was not found in graph');
+  });
+  it('Calling dfs with a null argument throws an error', () => {
+    const graph = new Graph();
+    expect(() => {
+      graph.dfs();
+    }).toThrowError('Error: Need to call with a valid start vertex');
   });
   it('Calling getEdges on an empty graph throws an error', () => {
     const graph = new Graph();
@@ -229,7 +236,6 @@ describe('Graph', () => {
     let flightPath2Result = graph.getEdges(flightPath2);
     let flightPath3Result = graph.getEdges(flightPath3);
     let flightPath4Result = graph.getEdges(flightPath4);
-    console.log({flightPath1Result});
     expect(flightPath1Result).toStrictEqual({'directConnect': true, 'totalCost': '$135'});
     expect(flightPath2Result).toStrictEqual({'directConnect': true, 'totalCost': '$180'});
     expect(flightPath3Result).toStrictEqual({'directConnect': false, 'totalCost': '$0'});
