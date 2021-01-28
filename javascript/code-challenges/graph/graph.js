@@ -145,6 +145,15 @@ class Graph {
   }
 
   dfs(startVertex) {
+    // Add error checking for the startVertex argument.
+    if (startVertex == null || startVertex === '') {
+      throw new Error('Error: Need to call with a valid start vertex', startVertex);
+    }
+    // Add error checking for the start vertex.
+    if (!this.adjacencyList.has(startVertex) || !this.adjacencyList.size > 0) {
+      throw new Error('Error: Start vertex was not found in graph');
+    }
+
     const visitedNodes = new Set();
 
     const _traverseNeighbors = (node) => {

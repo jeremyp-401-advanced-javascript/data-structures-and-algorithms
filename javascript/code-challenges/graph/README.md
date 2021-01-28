@@ -96,6 +96,7 @@ Write tests to prove the following functionality:
 - [X] Calling bfs on an empty graph throws an error
 - [X] Calling bfs with a null argument throws an error
 - [X] Calling dfs on an empty graph throws an error
+- [X] Calling dfs with a null argument throws an error
 - [X] Calling getEdges on an empty graph throws an error
 - [X] Calling getEdges with an invalid argument throws an error
 - [X] A vertex can be successfully added to the graph
@@ -113,3 +114,4 @@ Write tests to prove the following functionality:
 
 ![Whiteboard](./assets/CodeChallenge36-WhiteboardSS.jpg)
 ![Whiteboard](./assets/CodeChallenge37-WhiteboardSS.jpg)
+![Whiteboard](./assets/CodeChallenge38-WhiteboardSS.jpg)
